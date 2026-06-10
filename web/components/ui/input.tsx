@@ -1,78 +1,19 @@
-interface InputProps {
-  label: string; // O nome que você vai escolher ao importar
-  id: string;  // id do imput
-  type?: string; //tipo do imput
-  multiline?: boolean;
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
-export function Input({ label, id, type, multiline }: InputProps){
-    return(
-        <div className="relative p-3 my-2 w-full">
-            {multiline? (
-                <textarea
-                        id={id}
-                        rows={10}
-                        placeholder=""
-                        className="
-                        w-full
-                        peer
-                        bg-white
-                        p-2
-                        border-2
-                        border-gray-500
-                        rounded-lg
-                        placeholder-transparent
-                        focus:outline-1
-                        focus:outline-blue-400
-                        focus:border-blue-400
-                        "
-                />
-            ) : (
-                    <input
-                        id={id}
-                        type={type}
-                        placeholder=""
-                        className="
-                        w-full
-                        peer
-                        bg-white
-                        p-2
-                        border-2
-                        border-gray-500
-                        rounded-lg
-                        placeholder-transparent
-                        focus:outline-1
-                        focus:outline-blue-400
-                        focus:border-blue-400
-                        "
-                    />
-            )
-            }
-
-    <label
-    htmlFor={id}
-    className="
-        absolute
-        text-xl
-        left-5
-        top-1/2
-        -translate-y-1/2
-        text-gray-500
-        origin-left
-        
-        transition-all
-        duration-300
-        ease-out
-        peer-focus:top-0
-        peer-focus:scale-90
-        peer-focus:text-black
-
-        peer-not-placeholder-shown:top-0
-        peer-not-placeholder-shown:scale-90
-    "
-    >
-   {label}
-    </label>
-</div>
-    )
-}
+export { Input }

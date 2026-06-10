@@ -1,28 +1,29 @@
-import Card from "@/components/ui/card"
-import { BadgeCheck, Award, ShieldCheck} from "lucide-react";
+import Card from "@/components/ui/card-custom"
+import { BadgeCheck, Award, ShieldCheck, Clock, Van, HandCoins} from "lucide-react";
 import Image from "next/image";
+
 
 export function Highlights() {
   return (
     <section className="w-full bg-mist-950 p-10 space-y-10">
-      <p className="text-white text-4xl text-center font-bold">Melhor escolha em locação de veiculos agriculas</p>
+      <p className="text-white text-4xl text-center font-(family-name:--font-turret) font-bold">Melhor escolha em locação de veiculos agriculas</p>
       <div className=" px-10 flex gap-y-5 flex-col justify-center items-center md:flex-row md:justify-evenly">
-        <Card tittle="Lorem ipsum"
-              description="Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. "
-              media={ <Image src="/globe.svg" alt="Ícone de globo" width={100} height={100}/>}
-              icon={<Award className="w-15 h-15 text-green-500" />}
+        <Card tittle="Atendimento Personalizado"
+              description="Oferecemos um suporte direto e ágil, entendendo a urgência e as necessidades específicas da sua empresa. "
+              media={ <Clock size={90} className="text-amber-500"/>}
+              icon={<Award className="w-15 h-15 text-green-900" />}
               
           />
-          <Card tittle="Lorem ipsum"
-                description="Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. "
-                media={ <Image src="/window.svg" alt="Ícone de globo" width={100} height={100} />}
-                icon={<ShieldCheck className="w-15 h-15 text-green-500" />}
+          <Card tittle="Frota Revisada"
+                description="Priorizamos a disponibilidade. Nossos veículos passam por manutenções rigorosas para garantir que seu serviço nunca pare. "
+                media={ <Van  size={90} className="text-amber-500"/>}
+                icon={<ShieldCheck className="w-8 h-8 text-green-900" />}
                 
           />
-          <Card tittle="Lorem ipsum"
-                description="Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. "
-                media={ <Image src="/vercel.svg" alt="Ícone de globo" width={100} height={100} />}
-                icon={<BadgeCheck className="w-15 h-15 text-green-500" />}
+          <Card tittle="Preço Justo e Flexível"
+                description="Soluções de aluguel desenhadas para o seu orçamento, com condições flexíveis para o produtor rural. "
+                media={ <HandCoins size={90} className="text-amber-500"/>}
+                icon={<BadgeCheck className="w-15 h-15 text-green-900" />}
           />
         </div>
        
