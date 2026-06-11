@@ -44,7 +44,8 @@ import { useState }from 'react';
 
 import { useClientes } from '@/hooks/useClientes';
 
-  
+import { InfoCliente } from "./infoCliente";
+import { DeletaCliente } from "./deletaCliente";
 
 export default function ListaClientes(){
     const { data, isLoading, error } = useClientes();
@@ -53,7 +54,7 @@ export default function ListaClientes(){
         cliente.nome.toLowerCase().includes(busca.toLowerCase())
     );
     return(
-        <Card className="w-full max-w-2xl ">
+        <Card className="w-full max-w-2xl dark">
             <CardHeader>
                 <CardTitle>Clientes</CardTitle>
                 <CardDescription>Para sensiveis use o botão Detalhes</CardDescription>
@@ -90,7 +91,12 @@ export default function ListaClientes(){
                                 </div>
                             </TableCell>
                             <TableCell>{cliente.telefone}</TableCell>
-                            <TableCell className="flex justify-evenly"><Button>Detalhes</Button><Button>Deletar</Button></TableCell>
+                            <TableCell>
+                                <div className="flex justify-between">
+                                    <InfoCliente cliente={cliente}/><DeletaCliente/>
+
+                                </div>
+                            </TableCell>
                         </TableRow>
                         ))
 
