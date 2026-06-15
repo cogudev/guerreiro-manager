@@ -1,0 +1,3 @@
+# PostgreSQL
+infra/postgres/data/
+infra/postgres/socket/
