@@ -24,6 +24,7 @@ public class LocacaoService {
     }
 
     public Locacao insert(Locacao locacao){
+        locacao.calcularValorTotal();
         return locacaoRepository.save(locacao);
     }
 

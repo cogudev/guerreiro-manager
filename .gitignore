@@ -1,3 +1,33 @@
+# Direnv
+.direnv/
+
+# Nix
+result
+
+# Frontend Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Backend Spring
+backend/target/
+backend/.idea/
+
+# VSCode
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+
 # PostgreSQL
 infra/postgres/data/
-infra/postgres/socket/
+infra/postgres/socket/*
+
+# Mantém apenas o .gitignore da pasta
+!infra/postgres/socket/.gitignore
+!infra/postgres/data/.gitignore
+
+# Variáveis de ambiente
+.env
+.env.*

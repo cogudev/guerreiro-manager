@@ -24,7 +24,7 @@ export function Header() {
               <div className="flex flex-col gap-12 mt-20 items-center font-(family-name:--font-turret) h-full">
                 <Link href="/admin" className="text-xl font-semibold hover:text-gray-600">Início</Link>
                 <Link href="/admin/clientes" className="text-xl font-semibold hover:text-gray-600">Clientes</Link>
-                <Link href="/veiculos" className="text-xl font-semibold hover:text-gray-600">Veículos</Link>
+                <Link href="/admin/veiculos" className="text-xl font-semibold hover:text-gray-600">Veículos</Link>
                 <Link href="/admin" className="text-xl font-semibold hover:text-gray-600">Nova Locação</Link>
                 <Link href="/admin" className="text-xl font-semibold hover:text-gray-600">Relatorios</Link>
                 <div className="[&>a]:text-xl font-semibold [&>a]:py-3 mt-auto mb-20 [&>a]:bg-red-500 [&>a]:hover:bg-red-500/90">

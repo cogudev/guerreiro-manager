@@ -6,7 +6,9 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,15 +37,23 @@ public class Locacao implements Serializable {
     @JoinColumn(name = "veiculo_id")
     private Veiculo veiculo;
 
-    private String valorDiaria;
+    private BigDecimal valorVeiculo;
+    private BigDecimal valorTotal;
     private LocalDate dataRetirada;
     private LocalDate dataEntrega;
 
     @Enumerated(EnumType.STRING)
     private StatusLocacao status;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "tb_locacao_adicionais", joinColumns = @JoinColumn(name = "locacao_id"))
-    private List<ItemAdicional> adicionais;
+    private List<ItemAdicional> adicionais = new ArrayList<>();
 
+    public void calcularValorTotal() {
+        BigDecimal totalAdicionais = adicionais.stream()
+                .map(ItemAdicional::getPreco)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        this.valorTotal = valorVeiculo.add(totalAdicionais);
+    }
 }

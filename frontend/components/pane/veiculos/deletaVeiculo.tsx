@@ -10,11 +10,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-interface DeletaClienteProps {
+interface DeletaVeiculoProps {
     onDelete: () => void;
 }
 
-export function DeletaCliente({onDelete}: DeletaClienteProps){
+export function DeletaVeiculo({onDelete}: DeletaVeiculoProps){
     return(
 <div className="dark">
     <AlertDialog>
@@ -26,7 +26,7 @@ export function DeletaCliente({onDelete}: DeletaClienteProps){
           <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
           <AlertDialogDescription>
             Essa ação não pode ser desfeita.<br></br>
-            Cliente será permanentemente deletado.
+            Veiculo será permanentemente deletado.
             <br></br>
             A ação só pode ser realizada caso não possua locações pendentes.
           </AlertDialogDescription>

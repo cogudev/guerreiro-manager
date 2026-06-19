@@ -5,6 +5,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public class ItemAdicional  {
 
     private String nome;
     private String descricao;
-    private String preco;
+    private BigDecimal preco;
 
 
 }

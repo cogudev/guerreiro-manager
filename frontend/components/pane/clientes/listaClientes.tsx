@@ -13,9 +13,7 @@ import {
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -23,7 +21,6 @@ import {
 
 import {
   Field,
-  FieldDescription,
   FieldLabel,
 } from "@/components/ui/field";
 
@@ -33,31 +30,29 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-  InputGroupText,
 } from "@/components/ui/input-group";
 
 import { Search } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
 
 import { useState }from 'react';
 
 import { useClientes } from '@/hooks/useClientes';
 
-import { InfoCliente } from "./infoCliente";
+import { FormsCliente } from "./formsCliente";
 import { DeletaCliente } from "./deletaCliente";
 
 export default function ListaClientes(){
-    const { data, isLoading, error } = useClientes();
+    const { data, isLoading, error, loadClientes, insertCliente, removeCliente } = useClientes();
     const [busca, setBusca] = useState("");
     const clientesFiltrados = data.filter((cliente) =>
         cliente.nome.toLowerCase().includes(busca.toLowerCase())
     );
+
     return(
         <Card className="w-full max-w-2xl dark">
             <CardHeader>
                 <CardTitle>Clientes</CardTitle>
-                <CardDescription>Para sensiveis use o botão Detalhes</CardDescription>
+                <CardDescription>Para dados sensiveis e edição use o botão Detalhes</CardDescription>
                 <CardAction>
                     <Field>
                         <FieldLabel>
@@ -93,7 +88,10 @@ export default function ListaClientes(){
                             <TableCell>{cliente.telefone}</TableCell>
                             <TableCell>
                                 <div className="flex justify-between">
-                                    <InfoCliente cliente={cliente}/><DeletaCliente/>
+                                    <div>
+                                         <FormsCliente cliente={cliente}  onSubmit={insertCliente}/>
+                                    </div>
+                                   <DeletaCliente onDelete={() => removeCliente(cliente.id)}/>
 
                                 </div>
                             </TableCell>
@@ -104,6 +102,9 @@ export default function ListaClientes(){
                     </TableBody>
                 </Table>
             </CardContent>
+            <CardFooter >
+                    <FormsCliente onSubmit={insertCliente}/>
+            </CardFooter>
         </Card>
     )
 }
