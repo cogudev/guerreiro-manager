@@ -88,6 +88,9 @@ export function ListaLocacoes() {
                     <span className="text-lg">{locacao.cliente.nome}</span>
                     <span className="text-xs">{locacao.cliente.telefone}</span>
                   </div>
+                  <div>
+                    
+                  </div>
                 </TableCell>
 
                 <TableCell>
@@ -108,11 +111,13 @@ export function ListaLocacoes() {
                 </TableCell>
 
                 <TableCell>
-                  <div className="flex justify-between">
-                    <div>
+                  <div className="flex flex-col md:flex-row">
+                    <div className="flex-1">
                      <DeletaLocacao onDelete={() => removeLocacao(locacao.id)}/>
                     </div>
-                    <FormsLocacao locacao={locacao} onSubmit={insertLocacao} />
+                    <div className="flex-1">
+                      <FormsLocacao locacao={locacao} onSubmit={insertLocacao} />
+                    </div>
                     
                   </div>
                 </TableCell>

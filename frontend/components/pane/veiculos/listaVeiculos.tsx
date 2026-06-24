@@ -83,11 +83,13 @@ export function ListaVeiculos(){
                                    </TableCell>
                                    <TableCell><span className="rounded-2xl p-2 font-medium bg-secondary  ">{veiculo.status}</span></TableCell>
                                    <TableCell>
-                                       <div className="flex justify-between">
-                                        <div>
+                                       <div className="flex flex-col md:flex-row">
+                                        <div className="flex-1">
                                             <FormsVeiculo veiculo={veiculo} onSubmit={insertVeiculo}/>
                                         </div>
-                                        <DeletaVeiculo onDelete={() => removeVeiculo(veiculo.id)}/>
+                                        <div className="flex-1">
+                                            <DeletaVeiculo onDelete={() => removeVeiculo(veiculo.id)}/>
+                                        </div>
        
                                        </div>
                                    </TableCell>

@@ -19,7 +19,7 @@ export function DeletaCliente({onDelete}: DeletaClienteProps){
 <div className="dark">
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline">Excluir</Button>
+        <Button className="w-full" variant="outline">Excluir</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

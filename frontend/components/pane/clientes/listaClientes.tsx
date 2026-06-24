@@ -87,11 +87,20 @@ export default function ListaClientes(){
                             </TableCell>
                             <TableCell>{cliente.telefone}</TableCell>
                             <TableCell>
-                                <div className="flex justify-between">
-                                    <div>
-                                         <FormsCliente cliente={cliente}  onSubmit={insertCliente}/>
+                                <div className="flex flex-col md:flex-row gap-2">
+                                    <div className="flex-1">
+                                        <FormsCliente cliente={cliente}  onSubmit={insertCliente}/>
+
                                     </div>
-                                   <DeletaCliente onDelete={() => removeCliente(cliente.id)}/>
+                                    <div className="flex-1">
+                                       <DeletaCliente onDelete={() => removeCliente(cliente.id)}/>
+
+                                    </div>
+
+                                    
+                                    
+
+                                    
 
                                 </div>
                             </TableCell>
