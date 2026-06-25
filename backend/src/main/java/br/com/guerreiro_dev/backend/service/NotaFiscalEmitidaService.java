@@ -5,8 +5,6 @@ import br.com.guerreiro_dev.backend.domain.NotaFiscalEmitida;
 import br.com.guerreiro_dev.backend.infrastructure.GeradorNotaFiscal;
 import br.com.guerreiro_dev.backend.repository.LocacaoRepository;
 import br.com.guerreiro_dev.backend.repository.NotaFiscalEmitidaRepository;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +24,14 @@ public class NotaFiscalEmitidaService {
         return notaFiscalEmitidaRepository.findAll();
     }
 
-    public NotaFiscalEmitida downloadNotaFiscal(UUID id){
+    public NotaFiscalEmitida findById(UUID id){
         return notaFiscalEmitidaRepository.findById(id).
                 orElseThrow(() -> new RuntimeException("Nota fiscal emitada não encontrada com o id: " + id));
+    }
+
+    public void delete(UUID id){
+        NotaFiscalEmitida notaFiscalEmitida = findById(id);
+        notaFiscalEmitidaRepository.delete(notaFiscalEmitida);
     }
 
     public NotaFiscalEmitida emitirNota(UUID locacaoId){
